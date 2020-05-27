@@ -1,0 +1,152 @@
+from tkinter import *
+from PIL import ImageTk,Image
+from random import choice
+import tkinter.messagebox as MessageBox
+
+hello=Tk()
+
+
+def opn():
+    a=Toplevel()
+    a.title("Stone Paper and Scissor game") 
+    st=Label(a,text="WELCOME TO STONE PAPER SCISSOR GAME",bg="green",font=("italic",33))
+    st.pack(fill="x")
+    nl=Label(a,text="Credit goes to Jagdish Sir",bg="red",fg="White")
+    nl.pack(anchor="nw")
+
+    def stone():
+        user["text"]= "user chossed stone"
+        lst=["stone","paper","scissor","stone","paper","scissor"]
+        lc=choice(lst)
+        b1["stat"]="disabled"
+        b2["stat"]="disabled"
+        b3["stat"]="disabled"
+        comp["text"]=[lc]
+        if lc=="stone":
+            msg["text"]="Its Draw"
+        elif lc=="paper":
+            msg["text"]="Computer wins"
+        elif lc=="scissor":
+            msg["text"]="User wins"
+
+
+    def paper():
+        user["text"]= "user chossed paper"
+        lst=["stone","paper","scissor","stone","paper","scissor"]
+        lc=choice(lst)
+        b1["state"]="disabled"
+        b2["state"]="disabled"
+        b3["state"]="disabled"
+        comp["text"]=[lc]
+        if lc=="stone":
+            msg["text"]="User Wins"
+        elif lc=="paper":
+            msg["text"]="Its Draw"
+        elif lc=="scissor":
+            msg["text"]="Computer Wins"
+
+
+    def scissor():
+        user["text"]= "user chossed scissor"
+        lst=["stone","paper","scissor","stone","paper","scissor"]
+        lc=choice(lst)
+        b1["state"]="disabled"
+        b2["state"]="disabled"
+        b3["state"]="disabled"
+        comp["text"]=[lc]
+        if lc=="stone":
+            msg["text"]="Computer Wins"
+        elif lc=="paper":
+            msg["text"]="User Wins"
+        elif lc=="scissor":
+            msg["text"]="Its Draw"
+
+
+    def letply():
+        b1["state"]="normal"
+        b2["state"]="normal"
+        b3["state"]="normal"
+        msg["text"]=""
+        comp["text"]=""
+        user["text"]=""
+
+
+
+            
+
+
+    user=Label(a,text="",font=("bold",22))
+    user.pack()
+
+
+    a.geometry("989x500")
+    a.configure(bg="silver")
+    b1=Button(a,text="stone",font=("bold",15),width=40,height=2,bg="orange",command=stone)
+    b2=Button(a,text="paper",font=("bold",15),width=40,height=2,bg="light blue",command=paper)
+    b3=Button(a,text="scissor",font=("bold",15),width=40,height=2,bg="yellow",command=scissor)
+    eb=Button(a,text="Back To Previous Window",font=("bold",15),width=24,height=1,command=a.destroy)
+    eb.pack(side="bottom")
+    letply=Button(a,text="Lets Play Again",bg="black",fg="white",font=("bold",15),width=40,
+                  command=letply,height=2)
+    b1.pack()
+    b2.pack()
+    b3.pack()
+    letply.pack()
+
+    comp=Label(a,text="",font=("bold",15))
+    comp.pack()
+
+
+
+    msg=Label(a,text="",font=("Helvetica",20,"bold"))
+    msg.pack()
+          
+
+
+
+
+
+
+
+
+hello.title("Stone Paper and Scissor Game")
+hello.geometry("480x750")
+lo=Label(hello,text="WELCOME TO STONE PAPER AND SCISSOR GAME",bg="green",fg="white"
+
+        ,font=("Bold",14))
+
+
+lo.grid()
+
+def name():
+    MessageBox.showinfo("Developer's Name","Aman Kumar Bairagi")
+
+def mg():
+    MessageBox.showinfo("More Games","Coming Soon")    
+
+butn=Button(hello,text="PLAY",command=opn,width=33,font=("bold",18),bg="purple")
+butn.grid(row =2,column=0)
+
+butn=Button(hello,text="End Game",command=hello.destroy,width=33,font=("bold",18),bg="light green",fg="Black")
+butn.grid(row=3,column=0)
+
+
+butn=Button(hello,text="Developer's Name",command=name,width=33,font=("bold",18),bg="light green",fg="Black")
+butn.grid(row=4,column=0)
+
+butn=Button(hello,text="More Games",command=mg,width=33,font=("bold",18),bg="light green",fg="Black")
+butn.grid(row=5,column=0)
+
+
+
+
+hello.maxsize(480,750)
+hello.minsize(480,750)
+p=PhotoImage(file="C:\\Users\\aman8\\Pictures\\Screenshots\\sps.png")
+v=Label(hello,image=p)
+v.grid(row=1,column=0)
+
+
+
+
+mainloop()
